@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do list</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="toDoList d-flex align-items-start p-5 col-12">
+            <div class="status d-none d-md-flex flex-column h-100 col-3">
+                <button onclick="showTasks(tasksList)" class="filterBtn activebtn showAllBtn">
+                    <p>ALL</p>
+                </button>
+                <button onclick="showToDoTasks()" class="filterBtn showToDoBtn">
+                    <p>To-Do</p>
+                </button>
+                <button onclick="showCompleteTasks()" class="filterBtn ShowCompleteBtn">
+                    <p>Completed</p>
+                </button>
+            </div>
+            <div class="tasks d-flex flex-column align-items-start px-5 col-8">
+                <div class="addtaskDiv d-flex align-items-center justify-content-between">
+                    <h1 class="d-none d-md-flex">All</h1>
+                    <button class="addtaskBTN d-none d-md-flex align-items-center justify-content-between"
+                        data-bs-toggle="modal" data-bs-target="#NewTaskModal">
+                        <span>Add Task</span>
+                        <img class="img-fluid" src="ion_add.png" alt="">
+                    </button>
+                    <!--Small screen status-->
+                    <div class="navStatus d-flex d-md-none w-100">
+                        <nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
+                            <ol class="breadcrumb gap-3">
+                                <li onclick="showTasks(tasksList)" class="showAllSmallScreen breadcrumb-item activeStatus">All</li>
+                                <li onclick="showToDoTasks()" class="showToDoSmallScreen breadcrumb-item " aria-current="page">To Do</li>
+                                <li onclick="showCompleteTasks()" class="showCompletedSmallScreen breadcrumb-item " aria-current="page">Completed</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <img class="d-flex d-md-none" src="ion_add.png" alt="" data-bs-toggle="modal"
+                        data-bs-target="#NewTaskModal" style="cursor: pointer;">
+                </div>
+                <div style="width: 643px; max-width: 100%;" class="taskHolder d-flex flex-column gap-2">
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="NewTaskModal" tabindex="-1" aria-labelledby="NewTaskModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Task</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" name="TaskName" id="newTaskName">
+                        </div>
+                        <div class="modal-footer">
+                            <button style="background-color: white; border: 1px solid #8D99AE; color: #003049;"
+                                type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button onclick="addNewTask()" style="background-color: #00B4D8; border: none;"
+                                type="button" class="btn btn-primary" id="confirmAdd">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Modal-->
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
