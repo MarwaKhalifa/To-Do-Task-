@@ -24,6 +24,18 @@ let showTasks = (customList = tasksList) => {
                         </div>
                     `;
     });
+    let allCheckboxes = document.querySelectorAll('.chkBox');
+    allCheckboxes.forEach(chk => {
+        chk.addEventListener('change', (e) => {
+            let i = e.target.getAttribute('data-index');
+            let taskName = e.target.closest('.checkDiv').querySelector('.taskName').innerText;
+
+            let foundIndex = tasksList.findIndex(t => t.taskName === taskName);
+            if (foundIndex !== -1) {
+                tasksList[foundIndex].taskStatus = e.target.checked;
+            }
+        });
+    })
     document.querySelector(`.ShowCompleteBtn`).classList.remove('activebtn');
     document.querySelector(`.showToDoBtn`).classList.remove('activebtn');
     document.querySelector(`.showAllBtn`).classList.add('activebtn');
